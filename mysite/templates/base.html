@@ -1,0 +1,36 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}My Site{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+  <!-- Global Navigation Menu -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">MySite</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/webapp/">WebApp</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blogapp/">BlogApp</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% block header %}{% endblock %}
+
+  <div class="container mt-4">
+    {% block content %}{% endblock %}
+  </div>
+
+  {% block footer %}{% endblock %}
+</body>
+</html>
